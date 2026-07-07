@@ -1292,3 +1292,10 @@ function transitionToNextDay() {
    Trigger App Lifecycle Initialization
    ========================================================================== */
 window.addEventListener("DOMContentLoaded", initializeApp);
+
+const btnMenu = document.getElementById("btnMenu");
+const sidebar = document.querySelector(".sidebar");
+
+btnMenu.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
