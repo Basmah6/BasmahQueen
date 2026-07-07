@@ -1632,3 +1632,7 @@ body {
     margin-left: 0 !important;
   }
 }
+
+.hamburger {
+  display: none !important;
+}
