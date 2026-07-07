@@ -330,11 +330,10 @@ body {
 }
 
 .days-list {
-  padding: 12px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  align-items: stretch;
 }
 
 /* Days List Item Card */
@@ -348,8 +347,6 @@ body {
   cursor: pointer;
   transition: var(--transition-smooth);
   text-align: left;
-  width: 100%;        /* ← يجبر الزر على ملء العرض */
-  box-sizing: border-box; /* ← يمنع تجاوز الـ padding للعرض */
 }
 
 .day-nav-item:hover {
@@ -416,6 +413,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 220px;
 }
 
 .day-level-tag {
@@ -1521,12 +1519,18 @@ body {
   }
   
   .days-sidebar {
-     width: 350px;
+    width: 100%;
     height: auto;
     position: static;
     border-right: none;
     border-bottom: 1px solid var(--color-border);
-     flex-shrink: 0;
+  }
+  
+  .days-list {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 16px;
+    gap: 12px;
   }
   
   .day-nav-item {
@@ -1586,7 +1590,7 @@ body {
   }
   
   .target-words-grid {
-     grid-template-columns: 350px 1fr;
+    grid-template-columns: 1fr;
   }
   
   .celebration-card {
@@ -1594,9 +1598,37 @@ body {
   }
 }
 
-.day-nav-item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .reader-area {
+    margin-left: 0 !important;
+  }
 }
